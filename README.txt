@@ -25,7 +25,10 @@ While developing you may want the server to reload after changes in package file
 Then you are ready to go.
 
 
-How I did what I did
+How I did what I did (to Quickstart a Turbogears project)
+Yes, these are similar steps to what <http://turbogears.org/2.1/docs/main/QuickStart.html> does,
+but we go through some things that aren't covered in the QuickStart, or have conflicting documentation
+on the web OR or not mentioned at all in the QuickStart.
 ===================
 
 Started a Turbogears project...
