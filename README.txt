@@ -1,6 +1,11 @@
-Turbo-scrape shows how to test your application with the scrap framework
-<http://zesty.ca/scrape/>.
+Turbo-scrape is a sample Turbogears 2.0 app. It is both a walk-through of a basic Turbogears 2.0 app,
+and a gathering of slightly more advanced techniques that real applications (or developers from
+other platforms - aka Django and Rails) expect. Migrations and CatWalk as well as RESTful controllers
+are covered.
 
+Additionally, it shows how you would apply the scrap framework (<http://zesty.ca/scrape/>) as a
+functional test runner instead of WebTest. This may or may not have some advantages in your situation,
+but it's interesting to see none-the-less.
 
 Installation and Setup
 ======================
