@@ -66,3 +66,22 @@ We'll use the declarative way here, because (again) it's easy
 #12: easy_install sqlautocode
 #13: sqlautocode sqlite:///devdata.db -d -o turbo_scrape/model/contacts.py --tables=contacts
 
+
+OK, now we have our models all ready - cool. First, we want to check to see if
+our Contacts really did get created. We'll use CatWalk for that.
+<http://code.google.com/p/tgtools/wiki/Catwalk>
+-------------------------------------------------------------
+
+<added CatWalk to UI per instructions above. Hack Hack Hack...>
+
+Catwalk depends on the auth stuff being installed and up. Our application doesn't require this,
+so we need to create our own unsecured CatWalk controller:
+
+class UnSecuredCatwalk(Catwalk):
+    allow_only = None
+
+This really isn't a good idea, but for this sample it's OK. see
+<http://groups.google.com/group/turbogears/browse_thread/thread/d4133a16c5221d26/5950c7904f3cb665?lnk=gst&q=tg2+catwalk#>
+for some more discussion on this topic.
+
+#14: paster serve development.ini #and visit http://localhost:8080/catwalk in your browser

@@ -8,8 +8,15 @@ from turbo_scrape.lib.base import BaseController
 from turbo_scrape.model import DBSession, metadata
 from turbo_scrape.controllers.error import ErrorController
 
-__all__ = ['RootController']
+# for CatWalk
+from catwalk.tg2 import Catwalk
+from turbo_scrape.model import *
 
+# end for AdminController
+
+__all__ = ['RootController']
+class UnSecuredCatwalk(Catwalk):
+    allow_only = None
 
 class RootController(BaseController):
     """
@@ -27,7 +34,8 @@ class RootController(BaseController):
     """
     
     error = ErrorController()
-
+    catwalk = UnSecuredCatwalk(DBSession, [Contact])
+    
     @expose('turbo_scrape.templates.index')
     def index(self):
         """Handle the front-page."""
