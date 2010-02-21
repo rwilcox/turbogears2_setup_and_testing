@@ -31,11 +31,19 @@ How I did what I did
 Started a Turbogears project...
 #0: paster quickstart
 #1: Grabbed scrape.py from <http://zesty.ca/scrape/> and put it in lib/
+
+I'm not sure if these are normally required, but I needed them to get it working
+on my system - RPW
+-----------------------------------------------
 #2: sudo easy_install zope.sqlalchemy
 #3: sudo easy_install Babel
 #4: sudo easy_install Catwalk 
+
+Ok, back to normal setup
+-----------------------------------------------
 #5: paster setup-app development.ini
 #6: paster serve development.ini
+
 
 Then I started defining database migrations....
 <http://turbogears.org/2.0/docs/main/DatabaseMigration.html>
@@ -46,3 +54,15 @@ Then I started defining database migrations....
 <hack hack hack on the file in migration/versions/...>
 #10: migrate test migration sqlite:///devdata.db
 #11: migrate upgrade sqlite:///devdata.db migration
+
+
+Creating my models (we'll use sqlautocode to generate the initial one for contacts,
+because I'm lazy. As this model migrates we might not want to use this approach, but
+it's fine for our initial add of a table)
+<http://turbogears.org/2.1/docs/main/Utilities/sqlautocode.html>.
+
+We'll use the declarative way here, because (again) it's easy
+-----------------------------------------------------------
+#12: easy_install sqlautocode
+#13: sqlautocode sqlite:///devdata.db -d -o turbo_scrape/model/contacts.py --tables=contacts
+
