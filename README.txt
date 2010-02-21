@@ -96,3 +96,29 @@ instead of what the CatWalk documentation says.
 
 
 #14: paster serve development.ini #and visit http://localhost:8080/catwalk in your browser
+
+
+Now we know we have Contacts in our database. Great. We need a user accessiable controller for this now...
+We want to create a new controller class for this. I like RESTful controllers, so let's generate
+one of those.
+------------------------------------------
+
+#15: We create a RESTful controller and Sprox to make this pretty easy (and extendible - this is a widgetset
+we can grow into and expand out of as we need to).
+
+Take a look at turbo_scrape/controllers/contacts.py to see what we did here.
+
+Again, this is one of those places that the existing documentation isn't all that good. To see what is
+availiable you may have to dive into interactive console and do dir()s of module objects. While writing
+this I did things like:
+
+>>> import sprox.fillerbase
+>>> dir(sprox.fillerbase)
+['AddFormFiller', 'ConfigBase', 'ConfigBaseError', 'EditFormFiller', 'FieldsMetadata', 'FillerBase', 'FormFiller', 'ModelDefFiller', 'ModelsFiller', 'RecordFiller', 'TableFiller', 'XML', '__builtins__', '__doc__', '__file__', '__name__', '__package__', 'inspect']
+
+#16: Add contacts = ContactsController() to RootController
+
+--------------------------------------------
+
+
+

@@ -14,6 +14,7 @@ import turbo_scrape.model #import *
 
 # end for AdminController
 
+from turbo_scrape.controllers.contacts import ContactsController
 __all__ = ['RootController']
 class UnSecuredCatwalk(Catwalk):
     allow_only = None
@@ -34,7 +35,8 @@ class RootController(BaseController):
     """
     
     error = ErrorController()
-    catwalk = UnSecuredCatwalk( turbo_scrape.model, DBSession) #, [Contact] )
+    catwalk = UnSecuredCatwalk( turbo_scrape.model, DBSession)
+    contacts = ContactsController(DBSession)
     
     @expose('turbo_scrape.templates.index')
     def index(self):
