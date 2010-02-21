@@ -10,7 +10,7 @@ from turbo_scrape.controllers.error import ErrorController
 
 # for CatWalk
 from catwalk.tg2 import Catwalk
-from turbo_scrape.model import *
+import turbo_scrape.model #import *
 
 # end for AdminController
 
@@ -34,7 +34,7 @@ class RootController(BaseController):
     """
     
     error = ErrorController()
-    catwalk = UnSecuredCatwalk(DBSession, [Contact])
+    catwalk = UnSecuredCatwalk( turbo_scrape.model, DBSession) #, [Contact] )
     
     @expose('turbo_scrape.templates.index')
     def index(self):

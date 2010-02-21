@@ -75,13 +75,21 @@ our Contacts really did get created. We'll use CatWalk for that.
 <added CatWalk to UI per instructions above. Hack Hack Hack...>
 
 Catwalk depends on the auth stuff being installed and up. Our application doesn't require this,
-so we need to create our own unsecured CatWalk controller:
-
-class UnSecuredCatwalk(Catwalk):
-    allow_only = None
+so we need to create our own unsecured CatWalk controller (in spite of what the Catwalk docs say...):
 
 This really isn't a good idea, but for this sample it's OK. see
 <http://groups.google.com/group/turbogears/browse_thread/thread/d4133a16c5221d26/5950c7904f3cb665?lnk=gst&q=tg2+catwalk#>
 for some more discussion on this topic.
+
+class UnSecuredCatwalk(Catwalk):
+    allow_only = None
+
+ALSO, you want to mount it in the RootController with:
+
+catwalk = UnSecuredCatwalk( turbo_scrape.model, DBSession)
+
+instead of what the CatWalk documentation says.
+<http://turbogears.org/2.1/docs/main/QuickStart.html>
+
 
 #14: paster serve development.ini #and visit http://localhost:8080/catwalk in your browser
