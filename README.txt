@@ -120,5 +120,13 @@ this I did things like:
 
 --------------------------------------------
 
+#17: Testing with scrape.py is actually pretty straightforward from here: turbo_scrape/tests/functional/test_contacts.py
+shows you how to do this (essentially there's nothing to it beyond using scrape's API.
+
+Turbogear's normal testing mechanism mocks out some of WSGI so you can test without needing your server up,
+and then WebTest takes over. Testing wih scrape.py takes the other approach: you NEED a copy of your site up
+and serving web pages. Run the server in one terminal process and nosetests side-by-side in another (aka: by
+having two terminal windows open, or two screens open with GNU Screen).
+
 
 
