@@ -21,14 +21,3 @@ class Contact(DeclarativeBase):
     #relation definitions
 
 
-class MigrateVersion(DeclarativeBase):
-    __tablename__ = 'migrate_version'
-
-    #column definitions
-    repository_id = Column(u'repository_id', String(length=255, convert_unicode=False, assert_unicode=None), primary_key=True, nullable=False)
-    repository_path = Column(u'repository_path', Text(length=None, convert_unicode=False, assert_unicode=None))
-    version = Column(u'version', Integer())
-
-    #relation definitions
-
-
